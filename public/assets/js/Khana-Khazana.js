@@ -19,14 +19,17 @@ $(".create-form").on("submit", function(event) {
       function() {
         console.log("New khana created");
         // Reload the page to get the updated list
-        location.reload();
+       // location.reload();
       }
     );
   });
 
   $(".devour").on("click", function(event) {
+    var customer = {
+      customer: $("#customer").val().trim(),
+    };
     var id = $(this).data("id");
-    console.log(id);
+    console.log("customer:"+customer.customer);
     
     // Send the DELETE request.
     $.ajax("/api/khana/" + id, {
@@ -35,7 +38,19 @@ $(".create-form").on("submit", function(event) {
       function() {
         console.log("deleted khana", id);
         // Reload the page to get the updated list
-        location.reload();
+     //   location.reload();
+      }
+    );
+
+
+    $.ajax("/api/customer/" + id, {
+      type: "POST",
+      data: customer
+    }).then(
+      function() {
+        console.log("deleted khana", id);
+        // Reload the page to get the updated list
+       // location.reload();
       }
     );
   });
@@ -51,9 +66,11 @@ $(".create-form").on("submit", function(event) {
       function() {
         console.log("deleted khana", id);
         // Reload the page to get the updated list
-        location.reload();
+       // location.reload();
       }
     );
   });
+
+  
 });
 

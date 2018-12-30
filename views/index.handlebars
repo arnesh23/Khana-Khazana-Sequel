@@ -10,6 +10,10 @@
   {{#unless devoured}}
     <li id={{id}}> <p>Khana: {{khana_name}}</p> </li> 
     <button class="devour" data-id={{id}}> DEVOUR!</button>
+    <div class="form-group">
+    <label for="ca">Khana:</label>
+    <input type="text" id="customer" name="customer">
+  </div>
     {{/unless}}
   {{/each}}
 </ol>
