@@ -6,28 +6,21 @@
 // =============================================================
 
 // Requiring our models
-var db = require("../models");
-var home = require("../controllers/Khana-Khazana_controller.js")
+var db  = require('../models');
+var express = require('express');
+var router  = express.Router();
+
+module.exports = function(app) {
+
+app.get('/', function(req, res) {
+  db.Khana.findAll({}).then(function(dbkhana) {
+    res.render("index", {khana: dbkhana
+    });
+  });
+});
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-
-  // GET route for getting all of the todos
-  app.get("/", function(req, res) {
-    console.log("????////");
-    // findAll returns all entries for a table when used with no options
-    db.Khana.findAll({}).then(function(dbKhana) {
-      // We have access to the todos as an argument inside of the callback function
-      console.log(dbKhana);
-      res.json(dbKhana);
-      console.log(res);
-
-      home.renderHome(res,dbKhana);
-      console.log("done rendering!");
-      
-    });
-  });
 
   // POST route for saving a new todo
   app.post("/api/khana", function(req, res) {
@@ -39,7 +32,9 @@ module.exports = function(app) {
       
       khana_name: req.body.khana,
     }).then(function(dbkhana) {
+      console.log(saofjaodfjasfjas);
       // We have access to the new todo as an argument inside of the callback function
+      console.log("khana"+dbKhana);
       res.json(dbkhana);
     })
       .catch(function(err) {
@@ -66,6 +61,7 @@ module.exports = function(app) {
 
   // PUT route for updating todos. We can get the updated todo data from req.body
   app.put("/api/khana/:id", function(req, res) {
+    console.log("calling")
 
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
@@ -84,4 +80,6 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+  
 };
+

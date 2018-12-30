@@ -9,6 +9,7 @@ $(".create-form").on("submit", function(event) {
       khana: $("#khana").val().trim(),
     };
     console.log(khana);
+    console.log("blah");
 
     // Send the POST request.
     $.ajax("/api/khana", {

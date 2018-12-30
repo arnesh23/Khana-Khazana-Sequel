@@ -8,8 +8,8 @@
 <ol>
   {{#each khana}}
   {{#unless devoured}}
-    <li id={{ID}}> <p>Khana: {{khana_name}}</p> </li> 
-    <button class="devour" data-id={{ID}}> DEVOUR!</button>
+    <li id={{id}}> <p>Khana: {{khana_name}}</p> </li> 
+    <button class="devour" data-id={{id}}> DEVOUR!</button>
     {{/unless}}
   {{/each}}
 </ol>
@@ -20,9 +20,9 @@
 <ol>
   {{#each khana}}
   {{#if devoured}}
-    <li id={{ID}}> <p>Khana: {{khana_name}}</p>
+    <li id={{id}}> <p>Khana: {{khana_name}}</p>
     </li>
-      <button class="savor" data-id={{ID}}> Savor it?</button>
+      <button class="savor" data-id={{id}}> Savor it?</button>
     {{/if}}
   {{/each}}
 </ol>
