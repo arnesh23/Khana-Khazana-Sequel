@@ -24,13 +24,15 @@
 <ol>
   {{#each khana}}
   {{#if devoured}}
-    <li id={{id}}> <p>Khana: {{khana_name}}</p>
+    <li id={{id}}> <p>Khana: {{khana_name}} Devoured by</p>
     </li>
       <button class="savor" data-id={{id}}> Savor it?</button>
     {{/if}}
   {{/each}}
 </ol>
 </div>
+
+
 
 
 <div class = AddFood>
@@ -46,3 +48,12 @@
 </form>
 </div>
 
+<!-- Write your comments here 
+<ol>
+  <h1>Here</h1>
+  {{#each customer}}
+    {{customer_name}}
+
+  {{/each}}
+</ol>
+ -->

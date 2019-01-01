@@ -14,10 +14,22 @@ module.exports = function(app) {
 
 app.get('/', function(req, res) {
   db.Khana.findAll({}).then(function(dbkhana) {
+    console.log("//////////first")
     res.render("index", {khana: dbkhana
     });
   });
-});
+  
+  /* API call to get customers
+  db.Customer.findAll({}).then(function(dbCustomer) {
+    console.log("//////second")
+    res.render("index",{khana: dbkhana
+    }, {customer: dbCustomer
+    });
+  });
+  */
+})
+
+
 
 // Routes
 // =============================================================

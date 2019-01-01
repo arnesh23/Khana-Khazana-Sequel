@@ -19,7 +19,7 @@ $(".create-form").on("submit", function(event) {
       function() {
         console.log("New khana created");
         // Reload the page to get the updated list
-       // location.reload();
+        location.reload();
       }
     );
   });
@@ -31,14 +31,14 @@ $(".create-form").on("submit", function(event) {
     var id = $(this).data("id");
     console.log("customer:"+customer.customer);
     
-    // Send the DELETE request.
+    // Send the PUT request.
     $.ajax("/api/khana/" + id, {
       type: "PUT",
     }).then(
       function() {
         console.log("deleted khana", id);
         // Reload the page to get the updated list
-     //   location.reload();
+       location.reload();
       }
     );
 
@@ -48,9 +48,9 @@ $(".create-form").on("submit", function(event) {
       data: customer
     }).then(
       function() {
-        console.log("deleted khana", id);
+        console.log("Customer created", id);
         // Reload the page to get the updated list
-       // location.reload();
+        location.reload();
       }
     );
   });
@@ -66,7 +66,7 @@ $(".create-form").on("submit", function(event) {
       function() {
         console.log("deleted khana", id);
         // Reload the page to get the updated list
-       // location.reload();
+        location.reload();
       }
     );
   });
